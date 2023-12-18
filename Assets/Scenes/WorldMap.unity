@@ -234,7 +234,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 721865841}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.133, y: -0.005, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2295,7 +2295,7 @@ GameObject:
   - component: {fileID: 1928236961}
   - component: {fileID: 1928236960}
   - component: {fileID: 1928236967}
-  - component: {fileID: 1928236966}
+  - component: {fileID: 1928236968}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -2446,22 +2446,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1928236966
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1928236959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1cf6acdb22b126248b096b81cd0953ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shootSpeed: 12
-  shootDelay: 0.25
-  gunPrefab: {fileID: 3269062215793797291, guid: 56f17d75f8426cc4bb447d96fa3befd6, type: 3}
-  bulletPrefab: {fileID: 8870931761749762926, guid: 1ab0eb5db40b57549af7e42838b2143b, type: 3}
 --- !u!114 &1928236967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2474,6 +2458,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ae333e70c8eb1544b31f76a577b2af0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1928236968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928236959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f588a581923f5e040a0c7d49684e3718, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootSpeed: 12
+  shootDelay: 0.25
+  gunfrontPrefab: {fileID: 5980753249365676905, guid: 4ec40eedd265b7645b4f9ce8650697bd, type: 3}
+  ammoPrefab: {fileID: 4016291440765631728, guid: ae68005d2c077694dbf02accd4e625be, type: 3}
 --- !u!1 &2103918807
 GameObject:
   m_ObjectHideFlags: 0
