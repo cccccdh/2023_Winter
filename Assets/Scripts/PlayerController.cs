@@ -12,8 +12,7 @@ public class PlayerController : MonoBehaviour
     public string downAnime = "PlayerDown";     // 아래
     public string rightAnime = "PlayerRight";   // 오른쪽
     public string leftAnime = "PlayerLeft";     // 왼쪽
-    // 아직 안만듬
-    // public string deadAnime = "PlayerDead";  // 사망
+    public string deadAnime = "PlayerDead";     // 사망
 
     // 현재 애니메이션
     string nowAnimation = "";
@@ -132,7 +131,8 @@ public class PlayerController : MonoBehaviour
             isMoving = true;
         }
     }
-    //p1에서 p2까지의 각도 계산
+
+    // p1에서 p2까지의 각도 계산
     float GetAngle(Vector2 p1, Vector2 p2)
     {
         float angle;
@@ -216,7 +216,7 @@ public class PlayerController : MonoBehaviour
         rbody.gravityScale = 1;
         rbody.AddForce(new Vector2(0, 5), ForceMode2D.Impulse);
         // 애니메이션 변경하기
-        //GetComponent<Animator>().Play(deadAnime);
+        GetComponent<Animator>().Play(deadAnime);
         //1초 후에 플레이어 캐릭터 제거하기
         Destroy(gameObject, 1.0f);
     }

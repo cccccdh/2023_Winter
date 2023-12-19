@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemKeeper : MonoBehaviour
 {
-    public static int hasKeys = 0;      // ¿­¼è ¼ö
+    public static int hasKeys = 1;      // ¿­¼è ¼ö
     
     void Start()
     {
