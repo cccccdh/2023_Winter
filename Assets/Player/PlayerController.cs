@@ -167,7 +167,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // 대미지
-    void GetDamage(GameObject enemy)
+    void GetDamage(GameObject Enemy)
     {
         if(gameState == "Playing")
         {
@@ -177,7 +177,7 @@ public class PlayerController : MonoBehaviour
                 // 이동 중지
                 rbody.velocity = new Vector2(0, 0);
                 // 적 캐릭터 반대 방향으로 히트백
-                Vector3 toPos = (transform.position - enemy.transform.position).normalized;
+                Vector3 toPos = (transform.position - Enemy.transform.position).normalized;
                 rbody.AddForce(new Vector2(toPos.x *4, toPos.y *4), ForceMode2D.Impulse);
                 // 대미지를 받는 중으로 설정
                 inDamage = true;

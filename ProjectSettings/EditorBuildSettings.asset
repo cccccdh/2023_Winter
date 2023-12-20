@@ -11,4 +11,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WorldMap.unity
     guid: fa490008b90ea0d42b4f8e5f54f4e1b1
+  - enabled: 1
+    path: Assets/Scenes/dungeon2.unity
+    guid: d48585f57dfe1e04c81e87407c2ea930
+  - enabled: 1
+    path: Assets/Scenes/dungeon3.unity
+    guid: a58ecf9d50374e141a4d907b77c60a02
+  - enabled: 1
+    path: Assets/Scenes/dungeon4.unity
+    guid: 371184ce7c5ae144fbcdbf911ee40673
+  - enabled: 1
+    path: Assets/Scenes/dungeon5.unity
+    guid: 48cbab9a98aaed144801877260fb44a4
   m_configObjects: {}
