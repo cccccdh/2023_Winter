@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 34e11cdf2cd52bb4fb448776a3b076c2
+guid: 3916331bcf6380c4f9768d28e9664831
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Playerimage_8_0
+      name: EnemyImage_8_0
       rect:
         serializedVersion: 2
         x: 0
@@ -119,8 +119,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90292d397bc006047ab13c19392df13a
-      internalID: 996572362
+      spriteID: c8a703dd52b0f0e47b38dcc277a72008
+      internalID: 1639358173
       vertices: []
       indices: 
       edges: []
@@ -136,7 +136,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Playerimage_8_0: 996572362
+      EnemyImage_8_0: 1639358173
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

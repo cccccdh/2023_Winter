@@ -6,7 +6,7 @@ TagManager:
   tags:
   - Ammo
   - Exit
-  - Door
+  - Enemy
   layers:
   - Default
   - TransparentFX
