@@ -7,6 +7,9 @@ TagManager:
   - Ammo
   - Exit
   - Enemy
+  - Item
+  - ItemBox
+  - Door
   layers:
   - Default
   - TransparentFX
