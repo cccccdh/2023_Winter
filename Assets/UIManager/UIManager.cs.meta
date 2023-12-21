@@ -3,7 +3,17 @@ guid: 5334b905a2faf7547af10d715aec95f9
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - arrowText: {instanceID: 0}
+  - keyText: {instanceID: 0}
+  - hpImage: {instanceID: 0}
+  - life3Image: {fileID: 1766892429, guid: 50655e83d91b246419581daaba071a54, type: 3}
+  - life2Image: {fileID: -933319100, guid: 50655e83d91b246419581daaba071a54, type: 3}
+  - life1Image: {fileID: -135213156, guid: 50655e83d91b246419581daaba071a54, type: 3}
+  - life0Image: {fileID: -549529469, guid: 50655e83d91b246419581daaba071a54, type: 3}
+  - mainImage: {instanceID: 0}
+  - resetButton: {instanceID: 0}
+  - inputPanel: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
