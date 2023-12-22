@@ -22,5 +22,14 @@ EditorBuildSettings:
     guid: 371184ce7c5ae144fbcdbf911ee40673
   - enabled: 1
     path: Assets/Scenes/dungeon5.unity
-    guid: 48cbab9a98aaed144801877260fb44a4
+    guid: ff7be5738cee03d4f8d1b3b0ecb5471e
+  - enabled: 1
+    path: Assets/Scenes/dungeon6.unity
+    guid: a8503c1f88912b14282d01d7c7ea951d
+  - enabled: 1
+    path: Assets/Scenes/dungeon7.unity
+    guid: 3983cdd3442874e43992c488dc279f83
+  - enabled: 1
+    path: Assets/Scenes/boss.unity
+    guid: e7951bda65a12884db9c67f9d31e009c
   m_configObjects: {}

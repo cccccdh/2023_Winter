@@ -35,6 +35,12 @@ public class AmmoShoot : MonoBehaviour
             Attack();
         }
 
+        if ((Input.GetKeyDown(KeyCode.Space)))
+        {
+            PlayerController player = GetComponent<PlayerController>();
+            player.speed += 2.0f;
+        }
+
         // 총의 회전과 우선순위
         float gunZ = -1;    // 총의 Z 값(캐릭터보다 앞으로 설정)
 
