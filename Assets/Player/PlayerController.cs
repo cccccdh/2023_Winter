@@ -40,6 +40,9 @@ public class PlayerController : MonoBehaviour
         oldAnimation = downAnime;
         //게임 상태를 플레이 중으로 변경
         gameState = "playing";
+        //hp 갱신
+        //hp = PlayerPrefs.GetInt("PlayerHP");
+
     }
 
     void Update()
@@ -166,35 +169,39 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // 대미지
+    // 데미지
     void GetDamage(GameObject enemy)
     {
-        if(gameState == "Playing")
+        if (gameState == "playing")
         {
-            hp--; // HP 감소
+            hp--;   //HP감소
+            //HP 갱신
+            PlayerPrefs.SetInt("PlayerHP", hp);
             if (hp > 0)
             {
-                // 이동 중지
+                //이동 중지
                 rbody.velocity = new Vector2(0, 0);
-                // 적 캐릭터 반대 방향으로 히트백
+                //적 캐릭터의 반대 방향으로 히트백 
                 Vector3 toPos = (transform.position - enemy.transform.position).normalized;
-                rbody.AddForce(new Vector2(toPos.x *4, toPos.y *4), ForceMode2D.Impulse);
-                // 대미지를 받는 중으로 설정
+                rbody.AddForce(new Vector2(toPos.x * 4,
+                                           toPos.y * 4),
+                                           ForceMode2D.Impulse);
+                //데미지 받는 중으로 설정
                 inDamage = true;
                 Invoke("DamageEnd", 0.25f);
             }
             else
             {
-                // 게임 오버
+                //게임 오버
                 GameOver();
             }
         }
     }
 
-    // 대미지 받기 끝
+    //데미지 받기 끝
     void DamageEnd()
     {
-        // 대미지를 받는 중이 아님으로 설정
+        //데미지 받는 중이 아님으로 설정
         inDamage = false;
         //스프라이트 되돌리기
         gameObject.GetComponent<SpriteRenderer>().enabled = true;

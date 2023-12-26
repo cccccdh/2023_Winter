@@ -18,8 +18,8 @@ public class UIManager : MonoBehaviour
     public Sprite life0Image;           //HP0 이미지
     public GameObject mainImage;        // 이미지를 가지는 GameObject
     public GameObject resetButton;      // 리셋 버튼
-    //public Sprite gameOverSpr;          // GAME OVER 이미지
-    //public Sprite gameClearSpr;         // GAME CLEAR 이미지
+    public Sprite gameOverSpr;          // GAME OVER 이미지
+    public Sprite gameClearSpr;         // GAME CLEAR 이미지
     public GameObject inputPanel;       //버추얼 패드와 공격 버튼을 배치한 조작 패널
 
    public string retrySceneName = "";  //재시도하는 씬 이름
@@ -52,7 +52,7 @@ public class UIManager : MonoBehaviour
             hasKeys = ItemKeeper.hasKeys;
         }
     }
-    
+
 
     //HP갱신
     void UpdateHP()
@@ -73,7 +73,7 @@ public class UIManager : MonoBehaviour
                         resetButton.SetActive(true);    //버튼 표시
                         mainImage.SetActive(true);      //이미지 표시
                                                         // 이미지 설정
-                        //mainImage.GetComponent<Image>().sprite = gameOverSpr;
+                        mainImage.GetComponent<Image>().sprite = gameOverSpr;
                         inputPanel.SetActive(false);      //조작 UI 숨기기
                         PlayerController.gameState = "gameend";   //게임 종료
                     }
@@ -110,14 +110,14 @@ public class UIManager : MonoBehaviour
     }
 
     //게임 클리어
-    /*
+    
     public void GameClear()
     {
         //이미지 표시
-       // mainImage.SetActive(true);
-       // mainImage.GetComponent<Image>().sprite = gameClearSpr;//「GAMR CLEAR」を設定する
+        mainImage.SetActive(true);
+        mainImage.GetComponent<Image>().sprite = gameClearSpr;//「GAMR CLEAR」 설정
         //조작 UI 숨기기
-       // inputPanel.SetActive(false);
+        inputPanel.SetActive(false);
         //게임 클리어로 표시
         PlayerController.gameState = "gameclear";
         //3초뒤에 게임 타이틀로 돌아 가기
@@ -129,5 +129,5 @@ public class UIManager : MonoBehaviour
         PlayerPrefs.DeleteKey("LastScene");     //저장 씬을 제거
         SceneManager.LoadScene("Title");        //타이틀로 돌아가기
     }
-    */
+    
 }

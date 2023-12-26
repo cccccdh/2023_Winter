@@ -67,6 +67,9 @@ public class ItemData : MonoBehaviour
             itemBody.AddForce(new Vector2(0, 6), ForceMode2D.Impulse);
             //0.5초 뒤에 제거
             Destroy(gameObject, 0.5f);
+
+            //배치 Id 기록
+            //SaveDataManager.SetArrangeId(arrangeId, gameObject.tag);
         }
     }
 }
