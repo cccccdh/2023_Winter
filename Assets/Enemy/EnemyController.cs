@@ -78,8 +78,12 @@ public class EnemyController : MonoBehaviour
                 {
                     isActive = true;        // 활성으로 설정
                 }
+                else
+                {
+                    rbody.velocity = Vector2.zero;
+                }
             }
-        }
+        } 
         else if(isActive)
         {
             isActive = false;
@@ -107,23 +111,26 @@ public class EnemyController : MonoBehaviour
     {
         if(collision.gameObject.tag == "Ammo")
         {
-            // 대미지
-            hp--;
-            if(hp <= 0)
+            if(isActive)
             {
-                // 사망
-                // ===================
-                // 사망 연출
-                // ===================
-                // 충돌 판정 비활성
-                GetComponent<CircleCollider2D>().enabled = false;
-                // 이동 정지
-                rbody.velocity = new Vector2(0, 0);
-                // 애니메이션 변경
-                Animator animator = GetComponent<Animator>();
-                animator.Play(deadAnime);
-                // 0.5초 후에 제거
-                Destroy(gameObject, 0.5f);
+                // 대미지
+                hp--;
+                if (hp <= 0)
+                {
+                    // 사망
+                    // ===================
+                    // 사망 연출
+                    // ===================
+                    // 충돌 판정 비활성
+                    GetComponent<CircleCollider2D>().enabled = false;
+                    // 이동 정지
+                    rbody.velocity = new Vector2(0, 0);
+                    // 애니메이션 변경
+                    Animator animator = GetComponent<Animator>();
+                    animator.Play(deadAnime);
+                    // 0.5초 후에 제거
+                    Destroy(gameObject, 0.5f);
+                }
             }
         }
     }
