@@ -27,6 +27,9 @@ public class Door : MonoBehaviour
             {
                 ItemKeeper.hasKeys -= 7;    // 보석 개수 감소
                 Destroy(this.gameObject);   // 문을 열기
+
+                //배치 Id 기록
+                SaveDataManager.SetArrangeId(arrangeId, gameObject.tag);
             }
         }
     }

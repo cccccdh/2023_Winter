@@ -69,7 +69,7 @@ public class ItemData : MonoBehaviour
             Destroy(gameObject, 0.5f);
 
             //배치 Id 기록
-            //SaveDataManager.SetArrangeId(arrangeId, gameObject.tag);
+            SaveDataManager.SetArrangeId(arrangeId, gameObject.tag);
         }
     }
 }

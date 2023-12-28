@@ -8,12 +8,17 @@ public class ItemKeeper : MonoBehaviour
     
     void Start()
     {
-        
+        hasKeys = PlayerPrefs.GetInt("Keys");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+    
+    }
+
+    public static void SaveItem()
+    {
+        PlayerPrefs.SetInt("Keys", hasKeys);
     }
 }

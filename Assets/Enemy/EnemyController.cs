@@ -130,6 +130,8 @@ public class EnemyController : MonoBehaviour
                     animator.Play(deadAnime);
                     // 0.5초 후에 제거
                     Destroy(gameObject, 0.5f);
+                    //배치 Id 기록
+                    SaveDataManager.SetArrangeId(arrangeId, gameObject.tag);
                 }
             }
         }

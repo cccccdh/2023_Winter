@@ -36102,6 +36102,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3595605301628153829, guid: 05e232504faacf246bbf41df29a2d75b, type: 3}
+      propertyPath: retrySceneName
+      value: dungeon2
+      objectReference: {fileID: 0}
     - target: {fileID: 3595605301628153830, guid: 05e232504faacf246bbf41df29a2d75b, type: 3}
       propertyPath: m_Camera
       value: 
@@ -36392,6 +36396,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94b8ddb971b367749be815f82f409203, type: 3}
+--- !u!1 &1505136766 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1330692337077856762, guid: 94b8ddb971b367749be815f82f409203, type: 3}
+  m_PrefabInstance: {fileID: 1505136765}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1505136767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505136766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50294c4a24f797841a9af6a9b86120a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1526535222
 GameObject:
   m_ObjectHideFlags: 0

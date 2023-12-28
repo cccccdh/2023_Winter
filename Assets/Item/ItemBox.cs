@@ -31,6 +31,9 @@ public class ItemBox : MonoBehaviour
                 //프리펩으로 아이템 만들기
                 Instantiate(itemPrefab, transform.position, Quaternion.identity);
             }
+
+            //배치 Id 기록
+            SaveDataManager.SetArrangeId(arrangeId, gameObject.tag);
         }
     }
 }

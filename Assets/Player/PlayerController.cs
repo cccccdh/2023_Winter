@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
         //게임 상태를 플레이 중으로 변경
         gameState = "playing";
         //hp 갱신
-        //hp = PlayerPrefs.GetInt("PlayerHP");
+        hp = PlayerPrefs.GetInt("PlayerHP");
 
     }
 
