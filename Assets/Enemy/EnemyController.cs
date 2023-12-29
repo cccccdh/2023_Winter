@@ -106,6 +106,10 @@ public class EnemyController : MonoBehaviour
             }
         }
     }
+    public bool IsMoving()
+    {
+        return isActive && hp > 0;
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
