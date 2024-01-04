@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject otherTarget;
+
     void Start()
     {
         
@@ -16,9 +17,20 @@ public class CameraManager : MonoBehaviour
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if(player != null)
         {
-            //플레이어의 위치와 연동시킴
-            transform.position =  new Vector3(player.transform.position.x,
-                            player.transform.position.y, -10);
+            if(otherTarget != null)
+            {
+                Vector2 pos = Vector2.Lerp(player.transform.position,
+                    otherTarget.transform.position,
+                    0.5f);
+                // 플레이어 위치와 연동
+                transform.position = new Vector3(pos.x, pos.y, -10);
+            }
+            else
+            {
+                //플레이어의 위치와 연동시킴
+                transform.position = new Vector3(player.transform.position.x,
+                                player.transform.position.y, -10);
+            }
         }
     }
 }
