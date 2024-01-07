@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     int hasKeys = 0;                    //열쇠 수
-     //int hasArrows = 0;                  //화살 소지 수
+    int hasGunItem = 0;                  //화살 소지 수
     int hp = 0;                         //플레이어의 HP
     public GameObject gunText;        //화살의 수를 표시하는 Text
     public GameObject keyText;          //열쇠 수를 표시하는Text
@@ -45,6 +45,11 @@ public class UIManager : MonoBehaviour
     
     void UpdateItemCount()
     {
+        if (hasGunItem  != ItemKeeper.hasGunItem) 
+        {
+            gunText.GetComponent<Text>().text = ItemKeeper.hasGunItem.ToString();
+            hasGunItem = ItemKeeper.hasGunItem;
+        }
         //열쇠
         if (hasKeys != ItemKeeper.hasKeys)
         {

@@ -23,26 +23,16 @@ public class AmmoShoot : MonoBehaviour
 
     void Update()
     {
-        if (ItemKeeper.hasGunItem == 0)
+        if ((Input.GetButtonDown("Fire3")))
         {
-
-            if ((Input.GetButtonDown("Fire3")))
-            {
-                // (왼쪽 Shift) 공격 키가 눌림
-                Attack();
-            }
-
-            if ((Input.GetKeyDown(KeyCode.Z)))
-            {
-                // (A) 공격 키가 눌림
-                Attack();
-            }
+            // (왼쪽 Shift) 공격 키가 눌림
+            Attack();
         }
 
-        if ((Input.GetKeyDown(KeyCode.Space)))
+        if ((Input.GetKeyDown(KeyCode.Z)))
         {
-            PlayerController player = GetComponent<PlayerController>();
-            player.speed += 2.0f;
+            // (A) 공격 키가 눌림
+            Attack();
         }
 
         // 총의 회전과 우선순위

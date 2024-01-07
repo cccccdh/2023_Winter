@@ -117,7 +117,7 @@ public class EnemyController : MonoBehaviour
         {
             if(isActive)
             {
-                // 대미지
+                // 데미지
                 hp--;
                 if (hp <= 0)
                 {
@@ -138,6 +138,33 @@ public class EnemyController : MonoBehaviour
                     SaveDataManager.SetArrangeId(arrangeId, gameObject.tag);
                 }
             }
+        }
+        else if (collision.gameObject.tag == "gunitem")
+        {
+            if (isActive)
+            {
+                // 데미지
+                hp-=3;
+                if (hp <= 0)
+                {
+                    // gunitem 태그가 붙어있는 오브젝트에 맞으면 한 번에 사망
+                    // ===================
+                    // 사망 연출
+                    // ===================
+                    // 충돌 판정 비활성
+                    GetComponent<CircleCollider2D>().enabled = false;
+                    // 이동 정지
+                    rbody.velocity = new Vector2(0, 0);
+                    // 애니메이션 변경
+                    Animator animator = GetComponent<Animator>();
+                    animator.Play(deadAnime);
+                    // 0.5초 후에 제거
+                    Destroy(gameObject, 0.5f);
+                    // 배치 Id 기록
+                    SaveDataManager.SetArrangeId(arrangeId, gameObject.tag);
+                }
+            }
+            
         }
     }
 }
