@@ -881,6 +881,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f59f8e424e677f64b933ae5b5f1fc5e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  otherTarget: {fileID: 0}
 --- !u!1001 &543043447
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36570,6 +36571,10 @@ PrefabInstance:
       value: Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 3595605301628153829, guid: 05e232504faacf246bbf41df29a2d75b, type: 3}
+      propertyPath: gunText
+      value: 
+      objectReference: {fileID: 1375752454}
+    - target: {fileID: 3595605301628153829, guid: 05e232504faacf246bbf41df29a2d75b, type: 3}
       propertyPath: retrySceneName
       value: dungeon2
       objectReference: {fileID: 0}
@@ -36674,6 +36679,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5334b905a2faf7547af10d715aec95f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1375752454 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3595605302603638614, guid: 05e232504faacf246bbf41df29a2d75b, type: 3}
+  m_PrefabInstance: {fileID: 1367518199}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1432981194
 PrefabInstance:
   m_ObjectHideFlags: 0
