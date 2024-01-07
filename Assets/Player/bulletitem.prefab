@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 5166332206305949586}
   - component: {fileID: 476391295467539133}
   - component: {fileID: 2375164657428422144}
+  - component: {fileID: -8577736881025659144}
+  - component: {fileID: -664058121446113557}
   m_Layer: 6
   m_Name: bulletitem
   m_TagString: Ammo
@@ -106,3 +108,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &-8577736881025659144
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3889950611672142084}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.16
+--- !u!114 &-664058121446113557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3889950611672142084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a76b35e07bbf00a4289b83da46261503, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deleteTime: 2

@@ -82,7 +82,7 @@ public class ItemData : MonoBehaviour
                 // 위로 튀어오르는 연출
                 itemBody.AddForce(new Vector2(0, 6), ForceMode2D.Impulse);
                 // 0.5초 후에 제거
-                Destroy(gameObject, 0.5f);
+                //Destroy(gameObject, 0.5f);
 
                 // 배치 Id 기록
                 SaveDataManager.SetArrangeId(arrangeId, gameObject.tag);
