@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemKeeper : MonoBehaviour
+public class NewBehaviourScript : MonoBehaviour
 {
-    public static int hasKeys = 0;      // ¿­¼è ¼ö
-    
+    // Start is called before the first frame update
     void Start()
     {
         

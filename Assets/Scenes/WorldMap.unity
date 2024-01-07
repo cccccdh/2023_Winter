@@ -303,8 +303,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootSpeed: 12
   shootDelay: 0.25
-  gunfrontPrefab: {fileID: 8068007476205130501, guid: 1dcb5352daedb9e4c815d1ed49609f7f, type: 3}
-  ammoPrefab: {fileID: 4923210681478384227, guid: 854bcfbb281244c4b94353347412db7d, type: 3}
+  gunfrontPrefab: {fileID: 0}
+  ammoPrefab: {fileID: 0}
 --- !u!1 &357240530
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,6 +402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f59f8e424e677f64b933ae5b5f1fc5e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  otherTarget: {fileID: 0}
 --- !u!1 &721865841
 GameObject:
   m_ObjectHideFlags: 0
