@@ -36,7 +36,7 @@ public class GunItemShoot : MonoBehaviour
             }
             if ((Input.GetKeyDown(KeyCode.Z)))
             {
-                // (A) 공격 키가 눌림
+                // 공격 키가 눌림
                 Attack();
             }
             if ((Input.GetKeyDown(KeyCode.Space)))
@@ -46,13 +46,13 @@ public class GunItemShoot : MonoBehaviour
             }
 
             // 총의 회전과 우선순위
-            float gunZ = -2;    // 총의 Z 값(캐릭터보다 앞으로 설정)
+            float gunZ = -5;    // 총의 Z 값(캐릭터보다 앞으로 설정)
 
             PlayerController plmv = GetComponent<PlayerController>();
             if (plmv.angleZ > 30 && plmv.angleZ < 150)
             {
                 // 위 방향
-                gunZ = 4;       // 총의 Z 값(캐릭터보다 뒤로 설정)
+                gunZ = 5;       // 총의 Z 값(캐릭터보다 뒤로 설정)
             }
 
             // 총의 회전
