@@ -6,7 +6,7 @@ public class GunItemShoot : MonoBehaviour
 {
     public float shootSpeed = 12.0f;    // 총알 속도
     public float shootDelay = 0.25f;    // 발사 간격
-    public GameObject gunfrontPrefab;   // 총의 프리팹
+    public GameObject GunitemPrefab;   // 총의 프리팹
     public GameObject ammoPrefab;       // 화살의 프리팹
 
     bool inAttack = false;              // 공격 중 여부
@@ -17,9 +17,12 @@ public class GunItemShoot : MonoBehaviour
     {
         // 총을 플레이어 캐릭터에 배치
         Vector3 pos = transform.position;
-        gunitemObj = Instantiate(gunfrontPrefab, pos, Quaternion.identity);
+        gunitemObj = Instantiate(GunitemPrefab, pos, Quaternion.identity);
         gunitemObj.transform.SetParent(transform);  // 플레이어 캐릭터를 총의 부모로 설정
         gunitemObj.SetActive(false);  // 처음에는 비활성화
+
+        hasGunItem = ItemKeeper.hasGunItem > 0;
+        gunitemObj.SetActive(hasGunItem);
     }
 
     void Update()
@@ -90,12 +93,14 @@ public class GunItemShoot : MonoBehaviour
     {
         // 아이템을 먹기 전에는 총알 발사 비활성화
         hasGunItem = false;
+        gunitemObj.SetActive(false);
+
     }
 
     public void Attack()
     {
         // 총 아이템을 가지고 있고, 공격 중이 아님
-        if (ItemKeeper.hasGunItem > 0 && inAttack == false)
+        if (hasGunItem && !inAttack)
         {
             gunitemObj.SetActive(false);
             ItemKeeper.hasGunItem -= 1;   //총알 소모
