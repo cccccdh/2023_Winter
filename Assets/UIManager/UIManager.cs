@@ -90,7 +90,7 @@ public class UIManager : MonoBehaviour
                     {
                         hpImage.GetComponent<Image>().sprite = life2Image;
                     }
-                    else
+                    else if(hp == 3)
                     {
                         hpImage.GetComponent<Image>().sprite = life3Image;
                     }
