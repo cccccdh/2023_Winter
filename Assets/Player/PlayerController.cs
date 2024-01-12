@@ -104,7 +104,6 @@ public class PlayerController : MonoBehaviour
         {
             //대미지를 받는 중에는 점멸시키기
             float val = Mathf.Sin(Time.time * 50);
-            Debug.Log(val);
             if (val > 0)
             {
                 //스프라이트 표시

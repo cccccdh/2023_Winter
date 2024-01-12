@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4182534040256363118}
   m_Layer: 0
   m_Name: Door
-  m_TagString: Door
+  m_TagString: Exit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2473225058613846606}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.52, y: 2.84, z: -0.68}
+  m_LocalPosition: {x: 0.52, y: 2.84, z: 0}
   m_LocalScale: {x: 1.81, y: 1.69, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -96,7 +96,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -125,3 +125,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrangeId: 1
+  sceneName: boss
+  doorNumber: 1
+  direction: 2
