@@ -127,6 +127,8 @@ public class EnemyController : MonoBehaviour
                     // ===================
                     // 충돌 판정 비활성
                     GetComponent<CircleCollider2D>().enabled = false;
+                    // SE 재생
+                    SoundManager.soundManager.SEPlay(SEType.enemyDead);
                     // 이동 정지
                     rbody.velocity = new Vector2(0, 0);
                     // 애니메이션 변경
@@ -153,6 +155,8 @@ public class EnemyController : MonoBehaviour
                     // ===================
                     // 충돌 판정 비활성
                     GetComponent<CircleCollider2D>().enabled = false;
+                    // SE 재생
+                    SoundManager.soundManager.SEPlay(SEType.enemyDead);
                     // 이동 정지
                     rbody.velocity = new Vector2(0, 0);
                     // 애니메이션 변경

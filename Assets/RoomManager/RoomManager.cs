@@ -48,6 +48,18 @@ public class RoomManager : MonoBehaviour
                 break;  //반복문 빠나오기
             }
         }
+        // 씬 이름 가져오기
+        string scenename = PlayerPrefs.GetString("LastScene");
+        if (scenename == "boss")
+        {
+            // 보스 BGM 재생
+            SoundManager.soundManager.PlayBgm(BGMType.InBoss);
+        }
+        else
+        {
+            // 게임 중 BGM 재생
+            SoundManager.soundManager.PlayBgm(BGMType.InGame);
+        }
     }
 
     // Update is called once per frame

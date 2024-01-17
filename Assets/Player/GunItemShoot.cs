@@ -123,6 +123,9 @@ public class GunItemShoot : MonoBehaviour
             Rigidbody2D body = ammoObj.GetComponent<Rigidbody2D>();
             body.AddForce(v, ForceMode2D.Impulse);
 
+            // SE 재생
+            SoundManager.soundManager.SEPlay(SEType.ShootSniper);
+
             // 공격 중이 아님으로 설정
             Invoke("StopAttack", shootDelay);
         }

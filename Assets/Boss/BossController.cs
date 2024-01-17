@@ -52,20 +52,25 @@ public class BossController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Ammo")
+        if (hp <= 0)
         {
-            // 데미지
+            // 사망
+            // 충돌 판정 비활성
+            GetComponent<CircleCollider2D>().enabled = false;
+            // SE 재생
+            SoundManager.soundManager.SEPlay(SEType.bossDead);
+            // 애니메이션 변경
+            GetComponent<Animator>().Play("BossDead");
+            // 1초 뒤에 제거ㅏ
+            Destroy(gameObject, 1);
+        }
+        if (collision.gameObject.tag == "Ammo" || collision.gameObject.tag == "gunitem")
+        {
             hp--;
-            if(hp <= 0)
-            {
-                // 사망
-                // 충돌 판정 비활성
-                GetComponent<CircleCollider2D>().enabled = false;
-                // 애니메이션 변경
-                GetComponent<Animator>().Play("BossDead");
-                // 1초 뒤에 제거ㅏ
-                Destroy(gameObject, 1);
-            }
+        }
+        if(collision.gameObject.tag == "gunitem")
+        {
+            hp -= 3;
         }
     }
 
@@ -99,6 +104,9 @@ public class BossController : MonoBehaviour
             // 발사
             Rigidbody2D rbody  = bullet.GetComponent<Rigidbody2D>();
             rbody.AddForce(v, ForceMode2D.Impulse);
+
+            // SE 재생
+            SoundManager.soundManager.SEPlay(SEType.bossAttack);
         }
     }
 }

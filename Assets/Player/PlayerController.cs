@@ -174,6 +174,8 @@ public class PlayerController : MonoBehaviour
         if (gameState == "playing")
         {
             hp--;   //HP감소
+            // SE 재생
+            SoundManager.soundManager.SEPlay(SEType.hurt);
             //HP 갱신
             PlayerPrefs.SetInt("PlayerHP", hp);
             if (hp > 0)
@@ -225,5 +227,9 @@ public class PlayerController : MonoBehaviour
         GetComponent<Animator>().Play(deadAnime);
         //1초 후에 플레이어 캐릭터 제거하기
         Destroy(gameObject, 1.0f);
+        // BGM 정지
+        SoundManager.soundManager.StopBgm();
+        // SE 재생(게임 오버)
+        SoundManager.soundManager.SEPlay(SEType.GameOver);
     }
 }

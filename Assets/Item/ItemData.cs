@@ -37,6 +37,8 @@ public class ItemData : MonoBehaviour
             {
                 //열쇠
                 ItemKeeper.hasKeys += 1;
+                // SE 재생
+                SoundManager.soundManager.SEPlay(SEType.jewel);
             }
             else if (type == ItemType.gun)
             {
@@ -45,6 +47,8 @@ public class ItemData : MonoBehaviour
                 if (gunScript != null)
                 {
                     gunScript.EnableGun();
+                    // SE 재생
+                    SoundManager.soundManager.SEPlay(SEType.gun);
                 }
             }
             /*
@@ -63,6 +67,8 @@ public class ItemData : MonoBehaviour
                     PlayerController.hp++;
                     //HP 갱신
                     PlayerPrefs.SetInt("PlayerHP", PlayerController.hp);
+                    // SE 재생
+                    SoundManager.soundManager.SEPlay(SEType.heart);
                 }
             }
             //++++ 아이템 획득 연출 ++++

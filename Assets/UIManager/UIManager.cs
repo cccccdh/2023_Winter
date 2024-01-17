@@ -104,6 +104,8 @@ public class UIManager : MonoBehaviour
     {
         //HP 되돌리기
         PlayerPrefs.SetInt("PlayerHP", 3);
+        //BGM 초기화
+        SoundManager.plyingBGM = BGMType.None;
         //게임 중으로 설정
         SceneManager.LoadScene(retrySceneName);   //씬 이동
     }
