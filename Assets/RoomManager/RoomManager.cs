@@ -18,7 +18,7 @@ public class RoomManager : MonoBehaviour
         {
             GameObject doorObj = enters[i]; //배열에서 꺼내기
             Exit exit = doorObj.GetComponent<Exit>();   //Exit 클래스 변수
-            if (doorNumber == exit.doorNumber)
+            if (exit != null && doorNumber == exit.doorNumber)
             {
                 //==== 같은 문  번호 ====
                 //플레이어 캐릭터를 출입구로 이동
@@ -41,7 +41,10 @@ public class RoomManager : MonoBehaviour
                     x -= 1;
                 }
                 GameObject player = GameObject.FindGameObjectWithTag("Player");
-                player.transform.position = new Vector3(x, y);
+                if (player != null)
+                {
+                    player.transform.position = new Vector3(x, y);
+                }
                 break;  //반복문 빠나오기
             }
         }

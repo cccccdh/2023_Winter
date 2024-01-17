@@ -29,8 +29,19 @@ public class Exit : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (doorNumber == 100)
         {
+            //BGM 정지
+            //SoundManager.soundManager.StopBgm();
+            //SE 재생 (게임 클리어)
+            //SoundManager.soundManager.SEPlay(SEType.GameClear);
+            //게임 클리어
+            GameObject.FindObjectOfType<UIManager>().GameClear();
+        }
+        else
+        {
+            string nowScene = PlayerPrefs.GetString("LastScene");
+            SaveDataManager.SaveArrangeData(nowScene); // 배치데이터 저장
             RoomManager.ChangeScene(sceneName, doorNumber);
         }
     }
