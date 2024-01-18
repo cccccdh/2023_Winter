@@ -53,8 +53,8 @@ MonoBehaviour:
   seShootdefault: {fileID: 8300000, guid: a107ac3849c9724498e6b6d58ecb3e41, type: 3}
   seShootSniper: {fileID: 8300000, guid: da0c5288ec0d1ee48a885b96e438ca30, type: 3}
   sebossAttack: {fileID: 8300000, guid: 12bd71fe4c008164781563cbcf0bb567, type: 3}
-  sebossDead: {fileID: 8300000, guid: 0e658ae700ef58a47991e7785e2a7b76, type: 3}
-  seenemyDead: {fileID: 8300000, guid: d31f2e7316342234093e75a3ba052266, type: 3}
+  sebossDead: {fileID: 8300000, guid: 8472cc34ccf5c2743b14346235112e00, type: 3}
+  seenemyDead: {fileID: 8300000, guid: 8472cc34ccf5c2743b14346235112e00, type: 3}
   sehurt: {fileID: 8300000, guid: b210516ccd66e9f4391d3fc1b1381e6e, type: 3}
   seHeart: {fileID: 8300000, guid: 2b882ddd8356e7d4d827faeb6cd19ac1, type: 3}
   seJewel: {fileID: 8300000, guid: 7743936e8352d2a4fb8b6a1f568c357d, type: 3}

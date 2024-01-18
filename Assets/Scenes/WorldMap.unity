@@ -23391,22 +23391,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 1309420945333155803, guid: fc20dc6293ddb2c438073cef4f271bf7, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1309420945333155807, guid: fc20dc6293ddb2c438073cef4f271bf7, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 357240532}
-    - target: {fileID: 1309420946819607728, guid: fc20dc6293ddb2c438073cef4f271bf7, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 6.5200195
-      objectReference: {fileID: 0}
-    - target: {fileID: 1309420947300072862, guid: fc20dc6293ddb2c438073cef4f271bf7, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -25.900024
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc20dc6293ddb2c438073cef4f271bf7, type: 3}
 --- !u!1001 &1330692335643869546

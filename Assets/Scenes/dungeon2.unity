@@ -37256,10 +37256,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 1309420945333155804, guid: fc20dc6293ddb2c438073cef4f271bf7, type: 3}
-      propertyPath: retrySceneName
-      value: dungeon2
-      objectReference: {fileID: 0}
     - target: {fileID: 1309420945333155807, guid: fc20dc6293ddb2c438073cef4f271bf7, type: 3}
       propertyPath: m_Camera
       value: 
