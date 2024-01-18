@@ -23,7 +23,7 @@ public class TitleManager : MonoBehaviour
             continueButton.GetComponent<Button>().interactable = true; //활성
         }
         //타이틀 BGM 재생
-        //SoundManager.soundManager.PlayBgm(BGMType.Title);
+        SoundManager.soundManager.PlayBgm(BGMType.Title);
     }
 
     // Update is called once per frame

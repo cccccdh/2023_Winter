@@ -14,6 +14,11 @@ public class AmmoController : MonoBehaviour
     // 게임 오브젝트에 접총
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            // 몬스터에 닿으면 바로 총알 제거
+            Destroy(gameObject);
+        }
         // 접촉한 게임 오브젝트의 자식으로 설정하기
         transform.SetParent(collision.transform);
 
