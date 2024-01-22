@@ -536,6 +536,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1817018529}
     m_Modifications:
+    - target: {fileID: 2837149103571327851, guid: cd077c56eb84bc144a288ff1f48d550d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2837149103571327852, guid: cd077c56eb84bc144a288ff1f48d550d, type: 3}
       propertyPath: m_Name
       value: block
@@ -593,6 +597,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1509596352}
     m_Modifications:
+    - target: {fileID: 2837149103571327850, guid: cd077c56eb84bc144a288ff1f48d550d, type: 3}
+      propertyPath: m_EdgeRadius
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2837149103571327852, guid: cd077c56eb84bc144a288ff1f48d550d, type: 3}
       propertyPath: m_Name
       value: block
@@ -921,6 +929,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 845089171}
     m_Modifications:
+    - target: {fileID: 2837149103571327850, guid: cd077c56eb84bc144a288ff1f48d550d, type: 3}
+      propertyPath: m_EdgeRadius
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2837149103571327852, guid: cd077c56eb84bc144a288ff1f48d550d, type: 3}
       propertyPath: m_Name
       value: block
@@ -1044,6 +1056,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1509596352}
     m_Modifications:
+    - target: {fileID: 2837149103571327850, guid: cd077c56eb84bc144a288ff1f48d550d, type: 3}
+      propertyPath: m_EdgeRadius
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2837149103571327852, guid: cd077c56eb84bc144a288ff1f48d550d, type: 3}
       propertyPath: m_Name
       value: block (1)
@@ -1577,6 +1593,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 845089171}
     m_Modifications:
+    - target: {fileID: 2837149103571327850, guid: cd077c56eb84bc144a288ff1f48d550d, type: 3}
+      propertyPath: m_EdgeRadius
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2837149103571327852, guid: cd077c56eb84bc144a288ff1f48d550d, type: 3}
       propertyPath: m_Name
       value: block (3)
@@ -44103,6 +44123,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 845089171}
     m_Modifications:
+    - target: {fileID: 2837149103571327850, guid: cd077c56eb84bc144a288ff1f48d550d, type: 3}
+      propertyPath: m_EdgeRadius
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2837149103571327852, guid: cd077c56eb84bc144a288ff1f48d550d, type: 3}
       propertyPath: m_Name
       value: block (1)
@@ -44491,6 +44515,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 845089171}
     m_Modifications:
+    - target: {fileID: 2837149103571327850, guid: cd077c56eb84bc144a288ff1f48d550d, type: 3}
+      propertyPath: m_EdgeRadius
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2837149103571327852, guid: cd077c56eb84bc144a288ff1f48d550d, type: 3}
       propertyPath: m_Name
       value: block (2)
@@ -44666,9 +44694,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1817018529}
     m_Modifications:
+    - target: {fileID: 2837149103571327851, guid: cd077c56eb84bc144a288ff1f48d550d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2837149103571327852, guid: cd077c56eb84bc144a288ff1f48d550d, type: 3}
       propertyPath: m_Name
       value: block (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837149103571327852, guid: cd077c56eb84bc144a288ff1f48d550d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2837149103571327853, guid: cd077c56eb84bc144a288ff1f48d550d, type: 3}
       propertyPath: m_RootOrder

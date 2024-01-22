@@ -24,7 +24,7 @@ public class Door : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             // 플레이어가 보석을 7개 이상 가지고 있는지 확인
-            if (ItemKeeper.hasKeys >= 0)
+            if (ItemKeeper.hasKeys > 7)
             {
                 ItemKeeper.hasKeys -= 7;    // 보석 개수 감소
                 Destroy(this.gameObject);   // 문을 열기

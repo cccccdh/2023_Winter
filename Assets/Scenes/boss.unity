@@ -96342,10 +96342,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10ba8b741c20fcc4ea018e1e46abc9dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 20
+  hp: 80
   reactionDistance: 10
   bulletPrefab: {fileID: 2225432039169798336, guid: ba446c1ea18101242be049642373703c, type: 3}
-  shootSpeed: 5
+  shootSpeed: 9
 --- !u!1001 &2004028584
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -160,11 +160,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edcc196920b9e9b4692b50ee4630ce44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 5
   upAnime: PlayerUp
   downAnime: PlayerDown
   rightAnime: PlayerRight
   leftAnime: PlayerLeft
+  deadAnime: PlayerDead
   angleZ: -90
 --- !u!114 &6612306694791194732
 MonoBehaviour:

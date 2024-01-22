@@ -30,23 +30,6 @@ public class Exit : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(doorNumber == 10)
-        {
-            if (collision.gameObject.tag == "Player")
-            {
-                // 플레이어가 보석을 7개 이상 가지고 있는지 확인
-                if (ItemKeeper.hasKeys >= 7)
-                {
-                    ItemKeeper.hasKeys -= 7;    // 보석 개수 감소
-                    Destroy(this.gameObject);   // 문을 열기
-
-
-                    string nowScene = PlayerPrefs.GetString("LastScene");
-                    SaveDataManager.SaveArrangeData(nowScene); // 배치데이터 저장
-                    RoomManager.ChangeScene(sceneName, doorNumber);
-                }
-            }
-        }
         if (doorNumber == 100)
         {
             //BGM 정지
@@ -55,14 +38,15 @@ public class Exit : MonoBehaviour
             SoundManager.soundManager.SEPlay(SEType.GameClear);
             //게임 클리어
             GameObject.FindObjectOfType<UIManager>().GameClear();
-        }else if (doorNumber == 10)
+        }
+        else if (doorNumber == 10)
         {
             if (collision.gameObject.tag == "Player")
             {
                 // 플레이어가 보석을 7개 이상 가지고 있는지 확인
-                if (ItemKeeper.hasKeys >= 0)
+                if (ItemKeeper.hasKeys >= 7)
                 {
-                    ItemKeeper.hasKeys -= 7;    // 보석 개수 감소
+                    ItemKeeper.hasKeys = 0;    // 보석 개수 감소
                     Destroy(this.gameObject);   // 문을 열기
 
 
@@ -80,4 +64,3 @@ public class Exit : MonoBehaviour
         }
     }
 }
-
