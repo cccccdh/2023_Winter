@@ -37,25 +37,29 @@ public class VirtualPad : MonoBehaviour
         Vector2 mousePosition = Input.mousePosition;
         // 새로운 탭 위치 구하기
         Vector2 newTabPos = mousePosition - downPos;// 마우스 다운 위치로 부터의 이동 거리
-        if (is4DPad == false)
+        if (newTabPos.x < 500)
         {
-            newTabPos.y = 0; // 횡스크롤 일 때는  Y 값을 0 으로 한다.
+
+            if (is4DPad == false)
+            {
+                newTabPos.y = 0; // 횡스크롤 일 때는  Y 값을 0 으로 한다.
+            }
+            // 이동 벡터 계산하기
+            Vector2 axis = newTabPos.normalized; // 벡터를 정규화
+                                                 // 두 점의 거리 구하기
+            float len = Vector2.Distance(defPos, newTabPos);
+            if (len > MaxLength)
+            {
+                // 한계거리를 넘겼기 때문에 한계 좌표로 설정
+                newTabPos.x = axis.x * MaxLength;
+                newTabPos.y = axis.y * MaxLength;
+            }
+            // 탭 이동 시키기
+            GetComponent<RectTransform>().localPosition = newTabPos;
+            // 플레이어 캐릭터 이동 시키기
+            PlayerController plcnt = player.GetComponent<PlayerController>();
+            plcnt.SetAxis(axis.x, axis.y);
         }
-        // 이동 벡터 계산하기
-        Vector2 axis = newTabPos.normalized; // 벡터를 정규화
-        // 두 점의 거리 구하기
-        float len = Vector2.Distance(defPos, newTabPos);
-        if (len > MaxLength)
-        {
-            // 한계거리를 넘겼기 때문에 한계 좌표로 설정
-            newTabPos.x = axis.x * MaxLength;
-            newTabPos.y = axis.y * MaxLength;
-        }
-        // 탭 이동 시키기
-        GetComponent<RectTransform>().localPosition = newTabPos;
-        // 플레이어 캐릭터 이동 시키기
-        PlayerController plcnt = player.GetComponent<PlayerController>();
-        plcnt.SetAxis(axis.x, axis.y);
     }
     // 업 이벤트
     public void PadUp()
