@@ -491,6 +491,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1076040021}
     m_Modifications:
+    - target: {fileID: 1856687502082547704, guid: e1419f2d199c3b7478292a62202350bc, type: 3}
+      propertyPath: Enemy
+      value: 
+      objectReference: {fileID: 2130504630}
+    - target: {fileID: 1856687502082547704, guid: e1419f2d199c3b7478292a62202350bc, type: 3}
+      propertyPath: block
+      value: 
+      objectReference: {fileID: 586442460}
     - target: {fileID: 9189510276591792388, guid: e1419f2d199c3b7478292a62202350bc, type: 3}
       propertyPath: m_Name
       value: RoomTrigger_2
@@ -643,6 +651,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1076040021}
     m_Modifications:
+    - target: {fileID: 1856687502082547704, guid: e1419f2d199c3b7478292a62202350bc, type: 3}
+      propertyPath: Enemy
+      value: 
+      objectReference: {fileID: 546043146}
+    - target: {fileID: 1856687502082547704, guid: e1419f2d199c3b7478292a62202350bc, type: 3}
+      propertyPath: block
+      value: 
+      objectReference: {fileID: 831588723}
     - target: {fileID: 9189510276591792388, guid: e1419f2d199c3b7478292a62202350bc, type: 3}
       propertyPath: m_Name
       value: RoomTrigger_1
@@ -1060,6 +1076,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1076040021}
     m_Modifications:
+    - target: {fileID: 1856687502082547704, guid: e1419f2d199c3b7478292a62202350bc, type: 3}
+      propertyPath: Enemy
+      value: 
+      objectReference: {fileID: 1338353417}
+    - target: {fileID: 1856687502082547704, guid: e1419f2d199c3b7478292a62202350bc, type: 3}
+      propertyPath: block
+      value: 
+      objectReference: {fileID: 1748713382}
     - target: {fileID: 9189510276591792388, guid: e1419f2d199c3b7478292a62202350bc, type: 3}
       propertyPath: m_Name
       value: RoomTrigger_3
