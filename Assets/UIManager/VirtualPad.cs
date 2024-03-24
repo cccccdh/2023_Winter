@@ -75,7 +75,15 @@ public class VirtualPad : MonoBehaviour
     public void Attack()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        AmmoShoot shoot = player.GetComponent<AmmoShoot>();
-        shoot.Attack();
+        if(ItemKeeper.hasGunItem == 0)
+        {
+            AmmoShoot shoot = player.GetComponent<AmmoShoot>();
+            shoot.Attack();
+        }
+        else
+        {
+            GunItemShoot gunshoot = player.GetComponent<GunItemShoot>();
+            gunshoot.Attack();
+        }
     }
 }

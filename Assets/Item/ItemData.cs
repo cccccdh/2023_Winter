@@ -51,13 +51,6 @@ public class ItemData : MonoBehaviour
                     SoundManager.soundManager.SEPlay(SEType.gun);
                 }
             }
-            /*
-            else if (type == ItemType.gun)//รั
-            {
-                gunShoot shoot = collision.gameObject.GetComponent<GunShoot>();
-                ItemKeeper.hasArrows += count;
-            }
-            */
             else if (type == ItemType.life)
             {
                 //ปýธํ
