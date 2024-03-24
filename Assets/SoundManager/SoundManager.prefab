@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7505318533233283129}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.6300001, y: 1.625, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3830963430843619637
 MonoBehaviour:
@@ -58,7 +58,7 @@ MonoBehaviour:
   sehurt: {fileID: 8300000, guid: b210516ccd66e9f4391d3fc1b1381e6e, type: 3}
   seHeart: {fileID: 8300000, guid: 2b882ddd8356e7d4d827faeb6cd19ac1, type: 3}
   seJewel: {fileID: 8300000, guid: 7743936e8352d2a4fb8b6a1f568c357d, type: 3}
-  seGun: {fileID: 8300000, guid: 743bc7ff23ab03447b89162c428ee423, type: 3}
+  seGun: {fileID: 8300000, guid: 83d9d8298ff3e994eb09cfe3d3f02652, type: 3}
 --- !u!82 &4762107283102948798
 AudioSource:
   m_ObjectHideFlags: 0
