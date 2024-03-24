@@ -17,7 +17,8 @@ public class UIManager : MonoBehaviour
     public Sprite life1Image;           //HP1 이미지
     public Sprite life0Image;           //HP0 이미지
     public GameObject mainImage;        // 이미지를 가지는 GameObject
-    public GameObject resetButton;      // 리셋 버튼
+    public GameObject RetryButton;      // 리셋 버튼
+    public GameObject HomeButton;      // 리셋 버튼
     public Sprite gameOverSpr;          // GAME OVER 이미지
     public Sprite gameClearSpr;         // GAME CLEAR 이미지
     public GameObject inputPanel;       //버추얼 패드와 공격 버튼을 배치한 조작 패널
@@ -31,7 +32,8 @@ public class UIManager : MonoBehaviour
         UpdateHP();         //HP갱신
         //이미지를 숨기기
         Invoke("InactiveImage", 1.0f);
-        resetButton.SetActive(false);  //버튼 숨기기
+        RetryButton.SetActive(false);  //버튼 숨기기
+        HomeButton.SetActive(false);
     }
 
     // Update is called once per frame
@@ -75,7 +77,8 @@ public class UIManager : MonoBehaviour
                     {
                         hpImage.GetComponent<Image>().sprite = life0Image;
                         //플레이어 사망!!
-                        resetButton.SetActive(true);    //버튼 표시
+                        RetryButton.SetActive(true);    //버튼 표시
+                        HomeButton.SetActive(true);
                         mainImage.SetActive(true);      //이미지 표시
                                                         // 이미지 설정
                         mainImage.GetComponent<Image>().sprite = gameOverSpr;
@@ -131,7 +134,7 @@ public class UIManager : MonoBehaviour
         Invoke("GoToTitle", 3.0f);
     }
     //타이틀 화면으로 이동
-    void GoToTitle()
+    public void GoToTitle()
     {
         PlayerPrefs.DeleteKey("LastScene");     //저장 씬을 제거
         SceneManager.LoadScene("Title");        //타이틀로 돌아가기
