@@ -19,6 +19,7 @@ public class AmmoController : MonoBehaviour
             // 몬스터에 닿으면 바로 총알 제거
             Destroy(gameObject);
         }
+
         // 접촉한 게임 오브젝트의 자식으로 설정하기
         transform.SetParent(collision.transform);
 
