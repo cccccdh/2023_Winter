@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BossController : MonoBehaviour
@@ -11,6 +9,7 @@ public class BossController : MonoBehaviour
     public float reactionDistance = 10.0f;
 
     public GameObject bulletPrefab;         // 총알
+    public GameObject[] bossBullets;
     public float shootSpeed = 5.0f;         // 총알 속도
 
     // 공격 중인지 여부
@@ -64,7 +63,7 @@ public class BossController : MonoBehaviour
             // 1초 뒤에 제거ㅏ
             Destroy(gameObject, 1);
         }
-        if (collision.gameObject.tag == "Ammo" || collision.gameObject.tag == "gunitem")
+        if (collision.gameObject.tag == "Ammo")
         {
             hp--;
         }
@@ -74,8 +73,22 @@ public class BossController : MonoBehaviour
         }
     }
 
-    // 공격
-    void Attack()
+    void AttackPatton()
+    {
+        int rnd = Random.Range(0, 2);
+        switch (rnd)
+        {
+            case 0:
+                Attack_1();
+                break;
+            case 1: 
+                Attack_2(); 
+                break;
+        }
+    }
+
+    // 공격 1
+    void Attack_1()
     {
         // 발사 위치 오브젝트 가져오기
         Transform tr = transform.Find("gate");
@@ -107,6 +120,20 @@ public class BossController : MonoBehaviour
 
             // SE 재생
             SoundManager.soundManager.SEPlay(SEType.bossAttack);
+        }
+    }
+
+    // 공격 2
+    void Attack_2()
+    {
+        float yPos = transform.position.y + 2f;
+        foreach (GameObject obj in bossBullets)
+        {
+            if (obj != null)
+            {
+                obj.transform.position = new Vector3(transform.position.x, yPos, transform.position.z);
+                obj.SetActive(true);
+            }
         }
     }
 }

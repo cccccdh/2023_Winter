@@ -11,6 +11,7 @@ TagManager:
   - ItemBox
   - Door
   - gunitem
+  - Wall
   layers:
   - Default
   - TransparentFX

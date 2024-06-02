@@ -14,9 +14,9 @@ public enum BGMType
 // SE 종류
 public enum SEType
 {
-    GameClear,GameOver,Shootdefault,ShootSniper,
-    bossAttack,bossDead,enemyDead,hurt,
-    heart,jewel,gun
+    GameClear, GameOver, Shootdefault, ShootSniper,
+    bossAttack, bossDead, enemyDead, hurt,
+    heart, jewel, gun
 }
 
 public class SoundManager : MonoBehaviour
@@ -43,9 +43,12 @@ public class SoundManager : MonoBehaviour
 
     public static BGMType plyingBGM = BGMType.None;     // 재생 중인 BGM
 
+    public float bgmVolume = 1.0f;                      // BGM 볼륨
+    public float seVolume = 1.0f;                       // SE 볼륨
+
     private void Awake()
     {
-        if(soundManager == null)
+        if (soundManager == null)
         {
             soundManager = this;        // static 변수에 자기 자신을 저장
             // 씬이 바뀌어도 게임 오브젝트를 파기하지 않음
@@ -56,25 +59,47 @@ public class SoundManager : MonoBehaviour
             Destroy(gameObject);        // 게임 오브젝트 파기
         }
     }
+
+    private void Start()
+    {
+        // 저장된 볼륨 설정 불러오기
+        bgmVolume = PlayerPrefs.GetFloat("BGMVolume", 1.0f);
+        seVolume = PlayerPrefs.GetFloat("SEVolume", 1.0f);
+
+        // 초기 볼륨 설정
+        GetComponent<AudioSource>().volume = bgmVolume;
+    }
+    public void SetBgmVolume(float volume)
+    {
+        bgmVolume = volume;
+        GetComponent<AudioSource>().volume = bgmVolume;
+    }
+
+    public void SetSeVolume(float volume)
+    {
+        seVolume = volume;
+    }
+
     // BGM 설정
     public void PlayBgm(BGMType type)
     {
-        if(type != plyingBGM)
+        if (type != plyingBGM)
         {
             plyingBGM = type;
             AudioSource audio = GetComponent<AudioSource>();
-            if(type == BGMType.Title)
+            if (type == BGMType.Title)
             {
                 audio.clip = bgmInTitle;        // 타이틀
             }
-            else if(type == BGMType.InGame)
+            else if (type == BGMType.InGame)
             {
                 audio.clip = bgmInGame;         // 게임 중
             }
-            else if(type == BGMType.InBoss)
+            else if (type == BGMType.InBoss)
             {
-                audio.clip= bgmInBoss;          // 보스전
+                audio.clip = bgmInBoss;          // 보스전
             }
+            audio.volume = bgmVolume;
             audio.Play();
         }
     }
@@ -89,49 +114,59 @@ public class SoundManager : MonoBehaviour
     // SE 재생
     public void SEPlay(SEType type)
     {
-        if(type == SEType.GameClear)
+        AudioSource audio = GetComponent<AudioSource>();
+        if (type == SEType.GameClear)
         {
-            GetComponent<AudioSource>().PlayOneShot(meGameClear);       // 게임 클리어
+            audio.PlayOneShot(meGameClear, seVolume);       // 게임 클리어
         }
-        else if(type == SEType.GameOver)
+        else if (type == SEType.GameOver)
         {
-            GetComponent<AudioSource>().PlayOneShot(meGameOver);        // 게임 오버
+            audio.PlayOneShot(meGameOver, seVolume);        // 게임 오버
         }
-        else if(type == SEType.Shootdefault)
+        else if (type == SEType.Shootdefault)
         {
-            GetComponent<AudioSource>().PlayOneShot(seShootdefault);    // 총 쏘기
+            audio.PlayOneShot(seShootdefault, seVolume);    // 총 쏘기
         }
         else if (type == SEType.ShootSniper)
         {
-            GetComponent<AudioSource>().PlayOneShot(seShootSniper);     // 총 쏘기
+            audio.PlayOneShot(seShootSniper, seVolume);     // 소총 쏘기
         }
         else if (type == SEType.bossAttack)
         {
-            GetComponent<AudioSource>().PlayOneShot(sebossAttack);      // 보스 공격
+            audio.PlayOneShot(sebossAttack, seVolume);      // 보스 공격
         }
         else if (type == SEType.bossDead)
         {
-            GetComponent<AudioSource>().PlayOneShot(sebossDead);        // 보스 죽음
+            audio.PlayOneShot(sebossDead, seVolume);        // 보스 죽음
         }
         else if (type == SEType.enemyDead)
         {
-            GetComponent<AudioSource>().PlayOneShot(seenemyDead);       // 적 사망
+            audio.PlayOneShot(seenemyDead, seVolume);       // 적 사망
         }
         else if (type == SEType.hurt)
         {
-            GetComponent<AudioSource>().PlayOneShot(sehurt);            // 캐릭터 피격
+            audio.PlayOneShot(sehurt, seVolume);            // 캐릭터 피격
         }
         else if (type == SEType.heart)
         {
-            GetComponent<AudioSource>().PlayOneShot(seHeart);           // 하트 획득
+            audio.PlayOneShot(seHeart, seVolume);           // 하트 획득
         }
         else if (type == SEType.jewel)
         {
-            GetComponent<AudioSource>().PlayOneShot(seJewel);           // 쥬얼 획득
+            audio.PlayOneShot(seJewel, seVolume);           // 쥬얼 획득
         }
         else if (type == SEType.gun)
         {
-            GetComponent<AudioSource>().PlayOneShot(seGun);             // 소총 획득
+            audio.PlayOneShot(seGun, seVolume);             // 소총 획득
         }
+    }
+
+
+    private void OnApplicationQuit()
+    {
+        // 볼륨 설정 저장
+        PlayerPrefs.SetFloat("BGMVolume", bgmVolume);
+        PlayerPrefs.SetFloat("SEVolume", seVolume);
+        PlayerPrefs.Save();
     }
 }

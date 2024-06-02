@@ -65,7 +65,8 @@ public class RoomManager : MonoBehaviour
     // Update is called once per frame
     public void Pause()
     {
-        SceneManager.LoadScene(0);
+        //SceneManager.LoadScene(0);
+
     }
     void Update()
     {

@@ -113,7 +113,9 @@ public class GunItemShoot : MonoBehaviour
 
             // 총알의 게임 오브젝트 만들기(진행 방향으로 회전)
             Quaternion r = Quaternion.Euler(0, 0, angleZ);
-            GameObject ammoObj = Instantiate(ammoPrefab, transform.position, r);
+            var ammoObj = ObjectPool.GetBullet();
+            ammoObj.transform.position = transform.position;
+            ammoObj.transform.rotation = r;
 
             // 총알을 발사할 벡터 생성
             float x = Mathf.Cos(angleZ * Mathf.Deg2Rad);

@@ -1,8 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using GoogleMobileAds.Api;
+using Unity.VisualScripting;
+using System;
+using System.Collections.Generic;
 
 public class UIManager : MonoBehaviour
 {
@@ -19,11 +21,20 @@ public class UIManager : MonoBehaviour
     public GameObject mainImage;        // 이미지를 가지는 GameObject
     public GameObject RetryButton;      // 리셋 버튼
     public GameObject HomeButton;      // 리셋 버튼
+    public GameObject BlackImg;         // 바탕 이미지
+    public GameObject closeButton;      // 닫기 버튼
     public Sprite gameOverSpr;          // GAME OVER 이미지
     public Sprite gameClearSpr;         // GAME CLEAR 이미지
     public GameObject inputPanel;       //버추얼 패드와 공격 버튼을 배치한 조작 패널
 
-   public string retrySceneName = "";  //재시도하는 씬 이름
+    public string retrySceneName = "";  //재시도하는 씬 이름
+
+    private RewardedAd _rewardedAd;
+
+
+    #if UNITY_ANDROID
+        string _adUnitId = "ca-app-pub-3940256099942544/5224354917";
+    #endif
 
     // Start is called before the first frame update
     void Start()
@@ -34,8 +45,37 @@ public class UIManager : MonoBehaviour
         Invoke("InactiveImage", 1.0f);
         RetryButton.SetActive(false);  //버튼 숨기기
         HomeButton.SetActive(false);
-    }
 
+        // Initialize the Mobile Ads SDK.
+        MobileAds.Initialize((initStatus) =>
+        {
+            Dictionary<string, AdapterStatus> map = initStatus.getAdapterStatusMap();
+            foreach (KeyValuePair<string, AdapterStatus> keyValuePair in map)
+            {
+                string className = keyValuePair.Key;
+                AdapterStatus status = keyValuePair.Value;
+                switch (status.InitializationState)
+                {
+                    case AdapterState.NotReady:
+                        // The adapter initialization did not complete.
+                        MonoBehaviour.print("Adapter: " + className + " not ready.");
+                        Debug.Log("준비 안됨.");
+                        break;
+                    case AdapterState.Ready:
+                        // The adapter was successfully initialized.
+                        MonoBehaviour.print("Adapter: " + className + " is initialized.");
+                        Debug.Log("준비 됨.");
+                        break;
+                }
+            }
+        });
+
+        MobileAds.Initialize((InitializationStatus initStatus) =>
+        {
+            LoadRewardedAd();
+        });
+    }
+   
     // Update is called once per frame
     void Update()
     {
@@ -102,8 +142,79 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void LoadRewardedAd()
+    {
+        // Clean up the old ad before loading a new one.
+        if (_rewardedAd != null)
+        {
+            _rewardedAd.Destroy();
+            _rewardedAd = null;
+        }
+
+        Debug.Log("보상된 광고를 로드하는 중.");
+
+        // create our request used to load the ad.
+        var adRequest = new AdRequest();
+
+        // send the request to load the ad.
+        RewardedAd.Load(_adUnitId, adRequest,
+            (RewardedAd ad, LoadAdError error) =>
+            {
+                // if error is not null, the load request failed.
+                if (error != null || ad == null)
+                {
+                    Debug.LogError("보상된 광고가 광고를 로드하지 못했습니다 " +
+                                   "with error : " + error);
+                    return;
+                }
+
+                Debug.Log("응답이 가득 담긴 보상 광고 : "
+                          + ad.GetResponseInfo());
+
+                _rewardedAd = ad;
+                RegisterReloadHandler(_rewardedAd);
+            });
+    }
+
+    private void RegisterReloadHandler(RewardedAd ad)
+    {
+        // Raised when the ad closed full screen content.
+        ad.OnAdFullScreenContentClosed += () =>
+        {
+            Debug.Log("보상 광고 전체 화면 콘텐츠 닫힘.");
+
+            // Reload the ad so that we can show another as soon as possible.
+            LoadRewardedAd();
+        };
+        // Raised when the ad failed to open full screen content.
+        ad.OnAdFullScreenContentFailed += (AdError error) =>
+        {
+            Debug.LogError("보상된 광고가 전체 화면 콘텐츠를 열지 못했습니다 " +
+                           "with error : " + error);
+
+            // Reload the ad so that we can show another as soon as possible.
+            LoadRewardedAd();
+        };
+    }
+
+    public void ShowRewardedAd()
+    {
+        if (_rewardedAd != null && _rewardedAd.CanShowAd())
+        {
+            _rewardedAd.Show((Reward reward) =>
+            {
+                HandleOnAdClosed();
+            });
+        }
+    }
+
     //재시도
     public void Retry()
+    {
+        ShowRewardedAd();        
+    }
+    
+    public void HandleOnAdClosed()
     {
         //HP 되돌리기
         PlayerPrefs.SetInt("PlayerHP", 3);
@@ -125,7 +236,7 @@ public class UIManager : MonoBehaviour
     {
         //이미지 표시
         mainImage.SetActive(true);
-        mainImage.GetComponent<Image>().sprite = gameClearSpr;//「GAMR CLEAR」 설정
+        mainImage.GetComponent<Image>().sprite = gameClearSpr;//「GAME CLEAR」 설정
         //조작 UI 숨기기
         inputPanel.SetActive(false);
         //게임 클리어로 표시
@@ -140,4 +251,13 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene("Title");        //타이틀로 돌아가기
     }
     
+    public void SoundSetting()
+    {
+        BlackImg.SetActive(true);
+    }
+
+    public void CloseBlackImg()
+    {
+        BlackImg.SetActive(false);
+    }
 }
