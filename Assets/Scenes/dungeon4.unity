@@ -131,6 +131,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5008507793857810120, guid: cb09bc2b219d5d149886c10f8e4963d6, type: 3}
+      propertyPath: retrySceneName
+      value: dungeon4
+      objectReference: {fileID: 0}
     - target: {fileID: 5008507793857810127, guid: cb09bc2b219d5d149886c10f8e4963d6, type: 3}
       propertyPath: m_Name
       value: Canvas

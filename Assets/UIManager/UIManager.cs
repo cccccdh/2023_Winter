@@ -31,10 +31,13 @@ public class UIManager : MonoBehaviour
 
     private RewardedAd _rewardedAd;
 
-
-    #if UNITY_ANDROID
-        string _adUnitId = "ca-app-pub-3940256099942544/5224354917";
-    #endif
+#if UNITY_ANDROID
+    private string _adUnitId = "ca-app-pub-6455459678109195/6220583281"; // TestId ca-app-pub-3940256099942544/5224354917
+#elif UNITY_IPHONE
+    private string _adUnitId = "unused";
+#else
+    private string _adUnitId = "unused";
+#endif
 
     // Start is called before the first frame update
     void Start()
@@ -184,7 +187,7 @@ public class UIManager : MonoBehaviour
             Debug.Log("º¸»ó ±¤°í ÀüÃ¼ È­¸é ÄÜÅÙÃ÷ ´ÝÈû.");
 
             // Reload the ad so that we can show another as soon as possible.
-            LoadRewardedAd();
+            //LoadRewardedAd();
         };
         // Raised when the ad failed to open full screen content.
         ad.OnAdFullScreenContentFailed += (AdError error) =>
@@ -193,7 +196,7 @@ public class UIManager : MonoBehaviour
                            "with error : " + error);
 
             // Reload the ad so that we can show another as soon as possible.
-            LoadRewardedAd();
+            //LoadRewardedAd();
         };
     }
 
@@ -211,9 +214,9 @@ public class UIManager : MonoBehaviour
     //Àç½Ãµµ
     public void Retry()
     {
-        ShowRewardedAd();        
+        ShowRewardedAd();
     }
-    
+
     public void HandleOnAdClosed()
     {
         //HP µÇµ¹¸®±â
