@@ -5,6 +5,7 @@ using GoogleMobileAds.Api;
 using Unity.VisualScripting;
 using System;
 using System.Collections.Generic;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
@@ -124,7 +125,8 @@ public class UIManager : MonoBehaviour
                         HomeButton.SetActive(true);
                         mainImage.SetActive(true);      //이미지 표시
                                                         // 이미지 설정
-                        mainImage.GetComponent<Image>().sprite = gameOverSpr;
+                        mainImage.GetComponent<TextMeshProUGUI>().text = "GAME OVER";
+                        //mainImage.GetComponent<Image>().sprite = gameOverSpr;
                         inputPanel.SetActive(false);      //조작 UI 숨기기
                         PlayerController.gameState = "gameend";   //게임 종료
                     }
@@ -239,7 +241,8 @@ public class UIManager : MonoBehaviour
     {
         //이미지 표시
         mainImage.SetActive(true);
-        mainImage.GetComponent<Image>().sprite = gameClearSpr;//「GAME CLEAR」 설정
+        mainImage.GetComponent<TextMeshProUGUI>().text = "GAME CLEAR";
+        //mainImage.GetComponent<Image>().sprite = gameClearSpr;//「GAME CLEAR」 설정
         //조작 UI 숨기기
         inputPanel.SetActive(false);
         //게임 클리어로 표시

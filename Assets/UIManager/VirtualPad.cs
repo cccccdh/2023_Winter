@@ -37,7 +37,7 @@ public class VirtualPad : MonoBehaviour
         Vector2 mousePosition = Input.mousePosition;
         // 새로운 탭 위치 구하기
         Vector2 newTabPos = mousePosition - downPos;// 마우스 다운 위치로 부터의 이동 거리
-        if (newTabPos.x < 500)
+        if (newTabPos.x < 400)
         {
 
             if (is4DPad == false)

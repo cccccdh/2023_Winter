@@ -44031,6 +44031,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 860424199373701320, guid: cb09bc2b219d5d149886c10f8e4963d6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1422757410108361330, guid: cb09bc2b219d5d149886c10f8e4963d6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
@@ -44047,10 +44051,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: GoogleAdMob, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 1670107691593022880, guid: cb09bc2b219d5d149886c10f8e4963d6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4216165047102693078, guid: cb09bc2b219d5d149886c10f8e4963d6, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1441418639}
+    - target: {fileID: 5008507793203998292, guid: cb09bc2b219d5d149886c10f8e4963d6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5008507793826858939, guid: cb09bc2b219d5d149886c10f8e4963d6, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
@@ -44151,6 +44163,18 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1441418639}
+    - target: {fileID: 6682752644430695847, guid: cb09bc2b219d5d149886c10f8e4963d6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8774062953362994885, guid: cb09bc2b219d5d149886c10f8e4963d6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8837794822990719212, guid: cb09bc2b219d5d149886c10f8e4963d6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
