@@ -1,6 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+public enum MonsterType 
+{
+    Cactus,
+
+}
 
 public class EnemyController : MonoBehaviour
 {
@@ -44,49 +48,58 @@ public class EnemyController : MonoBehaviour
         {
             if (isActive)
             {
-                // 플레이어와의 각도 구하기
-                float dx = player.transform.position.x - transform.position.x;
-                float dy = player.transform.position.y - transform.position.y;
-                float rad = Mathf.Atan2(dy, dx);
-                float angle = rad * Mathf.Rad2Deg;
-                // 이동 각도에 따른 애니메이션 설정
-                if (angle > -45.0f && angle <= 45.0f)
-                {
-                    nowAnimation = rightAnime;
-                }
-                else if (angle > 45.0f && angle <= 135.0f)
-                {
-                    nowAnimation = upAnime;
-                }
-                else if (angle >= -135.0f && angle <= -45.0f)
-                {
-                    nowAnimation = downAnime;
-                }
-                else
-                {
-                    nowAnimation = leftAnime;
-                }
-                // 이동할 벡터 만들기
-                axisH = Mathf.Cos(rad) * speed;
-                axisV = Mathf.Sin(rad) * speed;
+                HandleActiveState(player);
             }
             else
             {
-                // 플레이어와의 거리 확인
-                float dist = Vector2.Distance(transform.position, player.transform.position);
-                if(dist < reactionDistance)
-                {
-                    isActive = true;        // 활성으로 설정
-                }
-                else
-                {
-                    rbody.velocity = Vector2.zero;
-                }
+                CheckReactionDistance(player);
             }
         } 
         else if(isActive)
         {
-            isActive = false;
+            Deactivate();
+        }
+    }
+
+    private void HandleActiveState(GameObject player)
+    {
+        // 플레이어와의 각도 구하기
+        float dx = player.transform.position.x - transform.position.x;
+        float dy = player.transform.position.y - transform.position.y;
+        float rad = Mathf.Atan2(dy, dx);
+        float angle = rad * Mathf.Rad2Deg;
+        // 이동 각도에 따른 애니메이션 설정
+        if (angle > -45.0f && angle <= 45.0f)
+        {
+            nowAnimation = rightAnime;
+        }
+        else if (angle > 45.0f && angle <= 135.0f)
+        {
+            nowAnimation = upAnime;
+        }
+        else if (angle >= -135.0f && angle <= -45.0f)
+        {
+            nowAnimation = downAnime;
+        }
+        else
+        {
+            nowAnimation = leftAnime;
+        }
+        // 이동할 벡터 만들기
+        axisH = Mathf.Cos(rad) * speed;
+        axisV = Mathf.Sin(rad) * speed;
+    }
+
+    private void CheckReactionDistance(GameObject player)
+    {
+        // Check distance to player
+        float dist = Vector2.Distance(transform.position, player.transform.position);
+        if (dist < reactionDistance)
+        {
+            isActive = true; // Set active state
+        }
+        else
+        {
             rbody.velocity = Vector2.zero;
         }
     }
@@ -110,65 +123,47 @@ public class EnemyController : MonoBehaviour
     {
         return isActive && hp > 0;
     }
-
+    private void Deactivate()
+    {
+        isActive = false;
+        rbody.velocity = Vector2.zero;
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Ammo")
+        if(collision.gameObject.tag == "Ammo" || collision.gameObject.tag == "gunitem")
         {
-            if(isActive)
+            HandleCollision(collision);
+        }
+    }
+
+    private void HandleCollision(Collision2D collision)
+    {
+        if (isActive)
+        {
+            int damage = collision.gameObject.tag == "gunitem" ? 3 : 1;
+            hp -= damage;
+
+            if (hp <= 0)
             {
-                // 데미지
-                hp--;
-                if (hp <= 0)
-                {
-                    // 사망
-                    // ===================
-                    // 사망 연출
-                    // ===================
-                    // 충돌 판정 비활성
-                    GetComponent<CircleCollider2D>().enabled = false;
-                    // SE 재생
-                    SoundManager.soundManager.SEPlay(SEType.enemyDead);
-                    // 이동 정지
-                    rbody.velocity = new Vector2(0, 0);
-                    // 애니메이션 변경
-                    Animator animator = GetComponent<Animator>();
-                    animator.Play(deadAnime);
-                    // 0.5초 후에 제거
-                    Destroy(gameObject, 0.5f);
-                    //배치 Id 기록
-                    SaveDataManager.SetArrangeId(arrangeId, gameObject.tag);
-                }
+                Die(collision.gameObject.tag);
             }
         }
-        else if (collision.gameObject.tag == "gunitem")
-        {
-            if (isActive)
-            {
-                // 데미지
-                hp-=3;
-                if (hp <= 0)
-                {
-                    // gunitem 태그가 붙어있는 오브젝트에 맞으면 한 번에 사망
-                    // ===================
-                    // 사망 연출
-                    // ===================
-                    // 충돌 판정 비활성
-                    GetComponent<CircleCollider2D>().enabled = false;
-                    // SE 재생
-                    SoundManager.soundManager.SEPlay(SEType.enemyDead);
-                    // 이동 정지
-                    rbody.velocity = new Vector2(0, 0);
-                    // 애니메이션 변경
-                    Animator animator = GetComponent<Animator>();
-                    animator.Play(deadAnime);
-                    // 0.5초 후에 제거
-                    Destroy(gameObject, 0.5f);
-                    // 배치 Id 기록
-                    SaveDataManager.SetArrangeId(arrangeId, gameObject.tag);
-                }
-            }
-            
-        }
+    }
+
+    private void Die(string tag)
+    {
+        // Disable collision detection
+        GetComponent<CircleCollider2D>().enabled = false;
+        // Play sound effect
+        SoundManager.soundManager.SEPlay(SEType.enemyDead);
+        // Stop movement
+        rbody.velocity = Vector2.zero;
+        // Change animation
+        Animator animator = GetComponent<Animator>();
+        animator.Play(deadAnime);
+        // Remove after 0.5 seconds
+        Destroy(gameObject, 0.5f);
+        // Record arrangement ID
+        SaveDataManager.SetArrangeId(arrangeId, tag);
     }
 }
