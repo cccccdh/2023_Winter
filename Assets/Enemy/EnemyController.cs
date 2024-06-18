@@ -1,11 +1,5 @@
 using UnityEngine;
 
-public enum MonsterType 
-{
-    Cactus,
-
-}
-
 public class EnemyController : MonoBehaviour
 {
     // HP
