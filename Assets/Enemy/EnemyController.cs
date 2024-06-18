@@ -1,9 +1,12 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyController : MonoBehaviour
 {
     // HP
     public int hp = 3;
+    // 최대 체력
+    public int maxHp = 3;
     // 이동속도
     public float speed = 0.5f;
     // 반응 거리
@@ -15,6 +18,9 @@ public class EnemyController : MonoBehaviour
     public string rightAnime = "EnemyRight";    // 오른쪽
     public string leftAnime = "EnemyLeft";      // 왼쪽
     public string deadAnime = "EnemyDead";      // 사망
+    // hp bar
+    public Image hp_bar;
+    
     // 현재 애니메이션
     string nowAnimation = "";
     // 이전 애니메이션
@@ -32,6 +38,8 @@ public class EnemyController : MonoBehaviour
     {
         // Rigidbody2D 가져오기
         rbody = GetComponent<Rigidbody2D>();
+        // 체력 초기화
+        UpdateHpBar();
     }
 
     void Update()
@@ -136,11 +144,19 @@ public class EnemyController : MonoBehaviour
         {
             int damage = collision.gameObject.tag == "gunitem" ? 3 : 1;
             hp -= damage;
+            UpdateHpBar();
 
             if (hp <= 0)
             {
                 Die(collision.gameObject.tag);
             }
+        }
+    }
+    private void UpdateHpBar()
+    {
+        if (hp_bar != null)
+        {
+            hp_bar.fillAmount = (float)hp / maxHp;
         }
     }
 
