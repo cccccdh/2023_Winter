@@ -17,17 +17,6 @@ public class ItemData : MonoBehaviour
 
     public int arrangeId = 0;       //식별을 위한 값
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     //접촉 (물리)
     private void OnTriggerEnter2D(Collider2D collision)
     {

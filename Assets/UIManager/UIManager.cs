@@ -216,7 +216,8 @@ public class UIManager : MonoBehaviour
     //Àç½Ãµµ
     public void Retry()
     {
-        ShowRewardedAd();
+        //ShowRewardedAd();
+        HandleOnAdClosed();
     }
 
     public void HandleOnAdClosed()

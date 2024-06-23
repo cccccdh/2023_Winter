@@ -42295,6 +42295,11 @@ MonoBehaviour:
   shootDelay: 0.5
   GunitemPrefab: {fileID: 2096765086747831259, guid: 0ef32f0e40bc3704e9fc778f14eed3fa, type: 3}
   ammoPrefab: {fileID: 3889950611672142084, guid: 994426919b22a8c47b7c4ca2ff8e9389, type: 3}
+--- !u!224 &773370417 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5008507793857810132, guid: cb09bc2b219d5d149886c10f8e4963d6, type: 3}
+  m_PrefabInstance: {fileID: 3066098235901968518}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &812117293
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42862,6 +42867,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   worldblock: {fileID: 1894411664}
+--- !u!1 &1286183935 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5008507793826858942, guid: cb09bc2b219d5d149886c10f8e4963d6, type: 3}
+  m_PrefabInstance: {fileID: 3066098235901968518}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1298152876
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44067,6 +44077,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5008507793826858943, guid: cb09bc2b219d5d149886c10f8e4963d6, type: 3}
+      propertyPath: joystickPrefab
+      value: 
+      objectReference: {fileID: 1286183935}
+    - target: {fileID: 5008507793826858943, guid: cb09bc2b219d5d149886c10f8e4963d6, type: 3}
+      propertyPath: canvasTransform
+      value: 
+      objectReference: {fileID: 773370417}
     - target: {fileID: 5008507793857810120, guid: cb09bc2b219d5d149886c10f8e4963d6, type: 3}
       propertyPath: retrySceneName
       value: WorldMap

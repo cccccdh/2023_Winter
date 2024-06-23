@@ -34,12 +34,12 @@ public class GunItemShoot : MonoBehaviour
             {
                 Attack();
             }
-            if ((Input.GetKeyDown(KeyCode.Z)))
+            if ((Input.GetKeyDown(KeyCode.Space)))
             {
                 // 공격 키가 눌림
                 Attack();
             }
-            if ((Input.GetKeyDown(KeyCode.Space)))
+            if ((Input.GetKeyDown(KeyCode.Z)))
             {
                 PlayerController player = GetComponent<PlayerController>();
                 player.speed += 2.0f;

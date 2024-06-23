@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class VirtualPad : MonoBehaviour
 {
@@ -18,10 +15,6 @@ public class VirtualPad : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         // 탭의 초기 좌표
         defPos = GetComponent<RectTransform>().localPosition;
-    }
-    // Update is called once per frame
-    void Update()
-    {
     }
 
     // 다운 이벤트
@@ -75,7 +68,7 @@ public class VirtualPad : MonoBehaviour
     public void Attack()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if(ItemKeeper.hasGunItem == 0)
+        if (ItemKeeper.hasGunItem == 0)
         {
             AmmoShoot shoot = player.GetComponent<AmmoShoot>();
             shoot.Attack();

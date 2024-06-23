@@ -31,17 +31,11 @@ public class AmmoShoot : MonoBehaviour
                 Attack();
             }
 
-            if ((Input.GetKeyDown(KeyCode.Z)))
+            if ((Input.GetKeyDown(KeyCode.Space)))
             {
                 // (A) 공격 키가 눌림
                 Attack();
             }
-        }
-
-        if ((Input.GetKeyDown(KeyCode.Space)))
-        {
-            PlayerController player = GetComponent<PlayerController>();
-            player.speed += 2.0f;
         }
 
         // 총의 회전과 우선순위

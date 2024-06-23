@@ -1,19 +1,31 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossController : MonoBehaviour
 {
     // 체력
-    public int hp = 20;
+    public int hp = 50;
+    int maxHp = 50;
 
     // 반응 거리
     public float reactionDistance = 10.0f;
+    public Image hp_bar;
 
     public GameObject bulletPrefab;         // 총알
     public GameObject[] bossBullets;
+    public GameObject[] miniBosses;
     public float shootSpeed = 5.0f;         // 총알 속도
+
 
     // 공격 중인지 여부
     bool isAttack = false;
+
+    // 미니보스 스폰 상태
+    bool[] miniBossSpawned = new bool[7];
+    public void Awake()
+    {
+        UpdateHpBar();
+    }
 
     void Update()
     {
@@ -26,14 +38,14 @@ public class BossController : MonoBehaviour
                 // 플레이어와의 거리 확인
                 Vector3 plpos = player.transform.position;
                 float dist = Vector2.Distance(transform.position, plpos);
-                if(dist <= reactionDistance && isAttack == false)
+                if (dist <= reactionDistance && isAttack == false)
                 {
                     // 범위 안 & 공격 중이 아니면 공격 애니메이션
                     isAttack = true;
                     // 애니메이션 변경
                     GetComponent<Animator>().Play("BossAttack");
                 }
-                else if( dist > reactionDistance && isAttack)
+                else if (dist > reactionDistance && isAttack)
                 {
                     isAttack = false;
                     // 애니메이션 변경
@@ -44,7 +56,26 @@ public class BossController : MonoBehaviour
             {
                 isAttack = false;
                 // 애니메이션 변경
-                GetComponent<Animator>().Play("BossAttack");
+                GetComponent<Animator>().Play("BossIdle");
+            }
+
+            // MiniBoss 스폰 체크
+            SpawnMiniBoss(hp);
+        }
+    }
+
+    private void SpawnMiniBoss(int bosshp)
+    {
+        int[] thresholds = { 49, 42, 35, 28, 21, 14, 7 };
+        for (int i = 0; i < thresholds.Length; i++)
+        {
+            if (bosshp <= thresholds[i] && !miniBossSpawned[i])
+            {
+                miniBosses[i].SetActive(true);  // 미니 보스를 활성화
+                miniBosses[i].GetComponent<PixelMobStats>().maxHp = 10;
+                miniBosses[i].GetComponent<PixelMobStats>().hp = 10;
+                miniBosses[i].GetComponent<PixelMobStats>().reactionDistance = 10;
+                miniBossSpawned[i] = true;    // 소환 상태를 true로 변경
             }
         }
     }
@@ -60,17 +91,35 @@ public class BossController : MonoBehaviour
             SoundManager.soundManager.SEPlay(SEType.bossDead);
             // 애니메이션 변경
             GetComponent<Animator>().Play("BossDead");
-            // 1초 뒤에 제거ㅏ
-            Destroy(gameObject, 1);
+            // 1초 뒤에 제거
+            Invoke("DisableBoss", 1.0f);
         }
-        if (collision.gameObject.tag == "Ammo")
+        else
         {
-            hp--;
+            if (collision.gameObject.tag == "Ammo")
+            {
+                hp--;
+                UpdateHpBar();
+            }
+            if (collision.gameObject.tag == "gunitem")
+            {
+                hp -= 3;
+                UpdateHpBar();
+            }
         }
-        if(collision.gameObject.tag == "gunitem")
+    }
+
+    private void UpdateHpBar()
+    {
+        if (hp_bar != null)
         {
-            hp -= 3;
+            hp_bar.fillAmount = (float)hp / maxHp;
         }
+    }
+
+    void DisableBoss()
+    {
+        this.gameObject.SetActive(false);
     }
 
     void AttackPatton()
@@ -81,8 +130,8 @@ public class BossController : MonoBehaviour
             case 0:
                 Attack_1();
                 break;
-            case 1: 
-                Attack_2(); 
+            case 1:
+                Attack_2();
                 break;
         }
     }
@@ -96,7 +145,7 @@ public class BossController : MonoBehaviour
 
         // 총알을 발사할 벡터 만들기
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if(player != null)
+        if (player != null)
         {
             float dx = player.transform.position.x - gate.transform.position.x;
             float dy = player.transform.position.y - gate.transform.position.y;
@@ -105,7 +154,7 @@ public class BossController : MonoBehaviour
             float rad = Mathf.Atan2(dy, dx);
 
             // 라디안을 각도로 변환
-            float angle = rad * Mathf.Deg2Rad;
+            float angle = rad * Mathf.Rad2Deg;
 
             // Prefab으로 총알 오브젝트 만들기 (진행 방향으로 회전)
             Quaternion r = Quaternion.Euler(0, 0, angle);
@@ -115,7 +164,7 @@ public class BossController : MonoBehaviour
             Vector3 v = new Vector3(x, y) * shootSpeed;
 
             // 발사
-            Rigidbody2D rbody  = bullet.GetComponent<Rigidbody2D>();
+            Rigidbody2D rbody = bullet.GetComponent<Rigidbody2D>();
             rbody.AddForce(v, ForceMode2D.Impulse);
 
             // SE 재생
